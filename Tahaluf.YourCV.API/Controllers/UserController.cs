@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,6 +11,8 @@ using Tahaluf.YourCV.Core.Service;
 
 namespace Tahaluf.YourCV.API.Controllers
 {
+    [Authorize]
+    //[AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : Controller
@@ -20,9 +23,10 @@ namespace Tahaluf.YourCV.API.Controllers
         {
             userService = _userService;
         }
-
+        
         [HttpPost]
-        [Route("upload")]
+      //  [AllowAnonymous]
+        [Route("[action]")]
         public User Upload()
         {
             try
@@ -52,7 +56,6 @@ namespace Tahaluf.YourCV.API.Controllers
 
         [HttpPost]
         [Route("CreateUser")]
-        [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public bool CreateUser([FromBody] User user)
         {
@@ -68,8 +71,7 @@ namespace Tahaluf.YourCV.API.Controllers
         }
 
         [HttpPut]
-        [Route("UpdateUser")]
-        [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
+        [Route("UpdateUser")]]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public bool UpdateUser([FromBody] User user)
         {
@@ -79,17 +81,14 @@ namespace Tahaluf.YourCV.API.Controllers
         [HttpDelete]
         [Route("delete/{id}")]
         [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
-
         public bool DeleteUser(int id)
         {
             return userService.DeleteUser(id);
         }
 
-
         [HttpGet]
         [Route("GetUserById/{id}")]
         [ProducesResponseType(typeof(List<User>), StatusCodes.Status200OK)]
-
         public List<User> GetUserById(int id)
         {
             return userService.GetUserById(id);

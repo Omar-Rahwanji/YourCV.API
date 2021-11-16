@@ -21,7 +21,7 @@ namespace Tahalut.YourCV.API.Controllers
 
         [HttpPost]
         [Route("CreateCreditCard")]
-        [ProducesResponseType(typeof(Education), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(CreditCard), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public bool CreateCreditCard([FromBody] CreditCard creditCard)
         {
@@ -30,7 +30,7 @@ namespace Tahalut.YourCV.API.Controllers
 
         [HttpGet]
         [Route("GetAllCreditCard")]
-        [ProducesResponseType(typeof(List<Education>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<CreditCard>), StatusCodes.Status200OK)]
         public List<CreditCard> GetAllCreditCard()
         {
             return creditCardService.GetALLCreditCard();
@@ -38,7 +38,7 @@ namespace Tahalut.YourCV.API.Controllers
 
         [HttpGet]
         [Route("GetAllCreditCardById/{id}")]
-        [ProducesResponseType(typeof(Education), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(CreditCard), StatusCodes.Status200OK)]
         public CreditCard GetAllCreditCardById(int id)
         {
             return creditCardService.GetCreditCardById(id);
@@ -46,7 +46,7 @@ namespace Tahalut.YourCV.API.Controllers
 
         [HttpDelete]
         [Route("DeleteCreditCard/{id}")]
-        [ProducesResponseType(typeof(Education), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(CreditCard), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public bool DeleteCreditCard(int id)
         {
@@ -55,7 +55,7 @@ namespace Tahalut.YourCV.API.Controllers
 
         [HttpPut]
         [Route("UpdateCreditCard")]
-        [ProducesResponseType(typeof(Education), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(CreditCard), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public bool UpdateCreditCard([FromBody] CreditCard creditCard)
         {
