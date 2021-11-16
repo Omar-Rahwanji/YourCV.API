@@ -24,6 +24,8 @@ namespace Tahalut.YourCV.Infra.Repository
             var parameters = new DynamicParameters();
             parameters.Add("@WebsiteInfoId", aboutUs.websiteInfo, dbType: DbType.String, direction: ParameterDirection.Input);
             parameters.Add("@Information", aboutUs.Information, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@CenterImage", aboutUs.CenterImage, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@SideImage", aboutUs.SideImage, dbType: DbType.String, direction: ParameterDirection.Input);
             IDbContext.Connection.ExecuteAsync("CreateAboutUs", parameters, commandType: CommandType.StoredProcedure);
 
             return true;
@@ -59,6 +61,8 @@ namespace Tahalut.YourCV.Infra.Repository
             parameters.Add("@Id", aboutUs.Id, dbType: DbType.String, direction: ParameterDirection.Input);
             parameters.Add("@WebsiteInfoId", aboutUs.websiteInfo, dbType: DbType.String, direction: ParameterDirection.Input);
             parameters.Add("@Information", aboutUs.Information, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@CenterImage", aboutUs.CenterImage, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@SideImage", aboutUs.SideImage, dbType: DbType.String, direction: ParameterDirection.Input);
             IDbContext.Connection.ExecuteAsync("UpdateAboutUs", parameters, commandType: CommandType.StoredProcedure);
             return true;
         }

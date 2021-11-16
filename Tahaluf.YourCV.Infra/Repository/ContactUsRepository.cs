@@ -25,6 +25,7 @@ namespace Tahaluf.YourCV.Infra.Repository
             p.Add("@Name", contactUs.Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@Email", contactUs.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@PhoneNumber", contactUs.PhoneNumber, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@Subject", contactUs.Subject, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@Message", contactUs.Message, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@WebsiteInfoId", contactUs.WebsiteInfoId, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
@@ -45,6 +46,7 @@ namespace Tahaluf.YourCV.Infra.Repository
             p.Add("@Name", contactUs.Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@Email", contactUs.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@PhoneNumber", contactUs.PhoneNumber, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@Subject", contactUs.Subject, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@Message", contactUs.Message, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@WebsiteInfoId", contactUs.WebsiteInfoId, dbType: DbType.Int32, direction: ParameterDirection.Input);
 

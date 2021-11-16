@@ -6,15 +6,17 @@ using System.Text;
 
 namespace Tahaluf.YourCV.Core.Data
 {
-    public class AboutUs
+   public class ContactInfo
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        public String Titles { get; set; }
+        public String PhoneNumber { get; set; }
+        public String Email { get; set; }
+        public String Address { get; set; }
+
         [ForeignKey("WebsiteInfoId")]
         public int WebsiteInfoId { get; set; }
-        public String Information { get; set; }
-        public String CenterImage { get; set; }
-        public String SideImage { get; set; }
         public virtual WebsiteInfo websiteInfo { get; set; }
     }
 }
