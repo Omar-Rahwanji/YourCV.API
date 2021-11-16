@@ -46,7 +46,6 @@ namespace Tahalut.YourCV.API.Controllers
         [HttpGet]
         [Route("GetResumeByUserId/{userId}")]
         [ProducesResponseType(typeof(List<Resume>), StatusCodes.Status200OK)]
-
         public List<Resume> GetResumeByUserId(int userId)
         {
             return resumeService.GetResumeByUserId(userId);
@@ -69,15 +68,6 @@ namespace Tahalut.YourCV.API.Controllers
         public bool UpdateResume([FromBody] Resume resume)
         {
             return resumeService.UpdateResume(resume);
-        }
-
-
-        [HttpGet]
-        [Route("GetResumeByUserId/{userId}")]
-        [ProducesResponseType(typeof(WebsiteInfo), StatusCodes.Status200OK)]
-        public List <Resume> GetResumeByUserId(int UserId)
-       {
-            return resumeService.GetResumeByUserId(UserId);
         }
     }
 }

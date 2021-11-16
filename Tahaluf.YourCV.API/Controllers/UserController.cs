@@ -71,7 +71,7 @@ namespace Tahaluf.YourCV.API.Controllers
         }
 
         [HttpPut]
-        [Route("UpdateUser")]]
+        [Route("UpdateUser")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public bool UpdateUser([FromBody] User user)
         {
