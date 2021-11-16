@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Tahaluf.YourCV.Core.Data
 {
-   public class User
+    public partial class User
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
