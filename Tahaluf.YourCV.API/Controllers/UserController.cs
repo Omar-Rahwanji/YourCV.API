@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,8 @@ using Tahaluf.YourCV.Core.Service;
 
 namespace Tahaluf.YourCV.API.Controllers
 {
+    [Authorize]
+    //[AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : Controller
@@ -19,8 +22,9 @@ namespace Tahaluf.YourCV.API.Controllers
         {
             userService = _userService;
         }
-
+        
         [HttpPost]
+      //  [AllowAnonymous]
         [Route("[action]")]
         [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -54,7 +58,6 @@ namespace Tahaluf.YourCV.API.Controllers
         {
             return userService.DeleteUser(id);
         }
-
 
         [HttpPost]
         [Route("[action]")]
