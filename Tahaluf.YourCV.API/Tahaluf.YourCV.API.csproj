@@ -9,5 +9,10 @@
     <ProjectReference Include="..\Tahaluf.YourCV.Infra\Tahaluf.YourCV.Infra.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Properties\assets\images\customers\" />
+    <Folder Include="Properties\assets\images\templates\" />
+  </ItemGroup>
+
 
 </Project>
