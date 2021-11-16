@@ -69,7 +69,7 @@ namespace Tahaluf.YourCV.API.Controllers
             return experienceService.GetExperienceById(experience);
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("GetAllExperience")]
         [ProducesResponseType(typeof(List<Experience>), StatusCodes.Status200OK)]
         public List<Experience> GetAllExperiences()

@@ -41,7 +41,7 @@ namespace Tahaluf.YourCV.Infra.Service
             return _educationService.GetEducation(id);
         }
 
-        public Education GetEducationByResumeId(int resumeId)
+        public IEnumerable<Education> GetEducationByResumeId(int resumeId)
         {
             return _educationService.GetEducationByResumeId(resumeId);
         }

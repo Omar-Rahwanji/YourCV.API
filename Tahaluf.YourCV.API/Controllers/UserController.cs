@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -93,45 +93,6 @@ namespace Tahaluf.YourCV.API.Controllers
         public List<User> GetUserById(int id)
         {
             return userService.GetUserById(id);
-        }
-
-
-        
-        [HttpPost]
-        [Route("upload")]
-        public User Upload()
-        {
-            try
-            {
-                var file = Request.Form.Files[0];
-                byte[] fileContent;
-                using (var ms = new MemoryStream())
-                {
-                    file.CopyTo(ms);
-                    fileContent = ms.ToArray();
-                }
-                var fileName = Path.GetFileNameWithoutExtension(file.FileName);
-
-
-
-
-                string attachmentFileName = $"{Guid.NewGuid().ToString("N")}_{fileName}.{Path.GetExtension(file.FileName).Replace(".", "")}";
-                var fullPath = Path.Combine("C:\\Users\\DELL\\Desktop\\YourCv\\Tahaluf.YourCV.API\\Properties\\assets\\" + "images\\customers\\",attachmentFileName);
-                using (var stream = new FileStream(fullPath, FileMode.Create))
-                {
-                    file.CopyTo(stream);
-                }
-                return new User { PersonalPhoto = attachmentFileName };
-            }
-            catch (Exception e)
-            {
-                return null;
-            }
-
-
-
-
-
         }
     }
 }

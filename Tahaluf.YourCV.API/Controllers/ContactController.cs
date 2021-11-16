@@ -54,7 +54,7 @@ namespace Tahaluf.YourCV.API.Controllers
         {
             return contactService.GetContactById(contact);
         }
-        [HttpPost]
+        [HttpGet]
         [Route("GetAllContact")]
         [ProducesResponseType(typeof(List<Contact>), StatusCodes.Status200OK)]
         public List<Contact> GetAllContacts() {

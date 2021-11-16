@@ -12,5 +12,7 @@ namespace Tahaluf.YourCV.Core.Repository
         public Resume GetResumeById(int id);
         public bool DeleteResume(int id);
         public bool UpdateResume(Resume resume);
+        public Resume GetResumeByUserId(int UserId);
+
     }
 }
