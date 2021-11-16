@@ -59,7 +59,7 @@ namespace Tahaluf.YourCV.Infra.Repository
             p.Add("@PersonalPhoto", user.PersonalPhoto, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@RoleId", user.RoleId, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
-            return dbContext.Connection.ExecuteAsync("UpdateUser", p, commandType: CommandType.StoredProcedure).Result>0;
+            return dbContext.Connection.ExecuteAsync("UpdateUser", p, commandType: CommandType.StoredProcedure).Result > 0;
         }
 
         public bool DeleteUser(int id)

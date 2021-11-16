@@ -7,6 +7,7 @@ using System.Text;
 using Tahaluf.YourCV.Core.Common;
 using Tahaluf.YourCV.Core.Data;
 using Tahaluf.YourCV.Core.Repository;
+using Tahaluf.YourCV.Core.ViewModel;
 
 namespace Tahalut.YourCV.Infra.Repository
 {
@@ -47,6 +48,13 @@ namespace Tahalut.YourCV.Infra.Repository
             var result = IDbContext.Connection.Query("GetResumeById", parameters, commandType: CommandType.StoredProcedure);
 
             return result.SingleOrDefault();
+        }
+
+        public List<Resume> GetResumeByUserId(int userId)
+        {
+            var p = new DynamicParameters();
+            p.Add("@UserId", userId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            return IDbContext.Connection.Query<Resume>("GetResumeByUserId", p, commandType: CommandType.StoredProcedure).ToList();
         }
 
         public List<Resume> GetALLResume()

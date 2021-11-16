@@ -31,7 +31,7 @@ namespace Tahaluf.YourCV.Infra.Service
             return _websiteInfoService.GetAllWebsiteInfo();
         }
 
-        public WebsiteInfo GetWebsiteInfo(int id)
+        public List<WebsiteInfo> GetWebsiteInfo(int id)
         {
             return _websiteInfoService.GetWebsiteInfo(id);
         }

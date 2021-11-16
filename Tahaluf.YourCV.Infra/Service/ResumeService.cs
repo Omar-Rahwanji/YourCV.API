@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Tahaluf.YourCV.Core.Data;
 using Tahaluf.YourCV.Core.Repository;
+using Tahaluf.YourCV.Core.ViewModel;
 
 namespace Tahalut.YourCV.Infra.Service
 {
@@ -37,9 +38,10 @@ namespace Tahalut.YourCV.Infra.Service
         {
             return resumeRepository.UpdateResume(resume);
         }
-        public Resume GetResumeByUserId(int UserId)
+
+        public List<Resume> GetResumeByUserId(int userId)
         {
-            return resumeRepository.GetResumeByUserId(UserId);
+            return resumeRepository.GetResumeByUserId(userId);
         }
     }
 }
