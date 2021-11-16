@@ -30,6 +30,8 @@ namespace Tahaluf.YourCV.Infra.Repository
             p.Add("@PhoneNumber", user.PhoneNumber, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@Country", user.Country, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@City", user.City, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@Gender", user.Gender, dbType: DbType.String, direction: ParameterDirection.Input);
+
             p.Add("@PersonalPhoto", user.PersonalPhoto, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@RoleId", user.RoleId, dbType: DbType.Int32, direction: ParameterDirection.Input);
 

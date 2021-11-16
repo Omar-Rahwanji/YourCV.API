@@ -12,6 +12,7 @@ namespace Tahalut.YourCV.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class ResumeController : Controller
+
     {
         private readonly IResumeService resumeService;
         public ResumeController(IResumeService resumeService)
@@ -20,7 +21,7 @@ namespace Tahalut.YourCV.API.Controllers
         }
         [HttpPost]
         [Route("CreateResume")]
-        [ProducesResponseType(typeof(Education), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Resume), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public bool CreateResume([FromBody] Resume resume)
         {
@@ -29,7 +30,7 @@ namespace Tahalut.YourCV.API.Controllers
 
         [HttpGet]
         [Route("GetAllResume")]
-        [ProducesResponseType(typeof(List<Education>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<Resume>), StatusCodes.Status200OK)]
         public List<Resume> GetAllResume()
         {
             return resumeService.GetALLResume();
@@ -37,7 +38,7 @@ namespace Tahalut.YourCV.API.Controllers
 
         [HttpGet]
         [Route("GetAllResumeById/{id}")]
-        [ProducesResponseType(typeof(Education), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Resume), StatusCodes.Status200OK)]
         public Resume GetAllResumeById(int id)
         {
             return resumeService.GetResumeById(id);
@@ -54,7 +55,7 @@ namespace Tahalut.YourCV.API.Controllers
 
         [HttpDelete]
         [Route("DeleteResume/{id}")]
-        [ProducesResponseType(typeof(Education), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Resume), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public bool DeleteResume(int id)
         {
@@ -63,11 +64,20 @@ namespace Tahalut.YourCV.API.Controllers
 
         [HttpPut]
         [Route("UpdateResume")]
-        [ProducesResponseType(typeof(Education), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Resume), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public bool UpdateResume([FromBody] Resume resume)
         {
             return resumeService.UpdateResume(resume);
+        }
+
+
+        [HttpGet]
+        [Route("GetResumeByUserId/{userId}")]
+        [ProducesResponseType(typeof(WebsiteInfo), StatusCodes.Status200OK)]
+        public List <Resume> GetResumeByUserId(int UserId)
+       {
+            return resumeService.GetResumeByUserId(UserId);
         }
     }
 }

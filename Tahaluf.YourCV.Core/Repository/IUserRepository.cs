@@ -11,6 +11,6 @@ namespace Tahaluf.YourCV.Core.Repository
         List<User> GetAllUser();
         bool UpdateUser(User user);
         bool DeleteUser(int id);
-        public List<User> GetUserById(int id);
+        List<User> GetUserById(int id);
     }
 }

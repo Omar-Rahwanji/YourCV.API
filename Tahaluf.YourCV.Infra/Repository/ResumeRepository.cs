@@ -11,7 +11,7 @@ using Tahaluf.YourCV.Core.ViewModel;
 
 namespace Tahalut.YourCV.Infra.Repository
 {
-   public class ResumeRepository : IResumeRepository
+    public class ResumeRepository : IResumeRepository
     {
         private readonly IDbContext IDbContext;
         public ResumeRepository(IDbContext IDbContext)
@@ -47,7 +47,7 @@ namespace Tahalut.YourCV.Infra.Repository
             parameters.Add("@Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = IDbContext.Connection.Query("GetResumeById", parameters, commandType: CommandType.StoredProcedure);
 
-            return result.FirstOrDefault();
+            return result.SingleOrDefault();
         }
 
         public List<Resume> GetResumeByUserId(int userId)
@@ -76,6 +76,15 @@ namespace Tahalut.YourCV.Infra.Repository
             return true;
         }
 
-        
+        public Resume GetResumeByUserId(int UserId)
+        {
+            var p = new DynamicParameters();
+            p.Add("@UserId", UserId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = IDbContext.Connection.Query<Resume>("GetResumeByUserId", p, commandType: CommandType.StoredProcedure);
+            return result.SingleOrDefault();
+
+
+        }
     }
-}
+} 
+

@@ -22,7 +22,7 @@ namespace Tahalut.YourCV.API.Controllers
         [HttpPost]
         [HttpPost]
         [Route("CreateLanguage")]
-        [ProducesResponseType(typeof(Education), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Language), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public bool CreateLanguage([FromBody] Language language)
         {
@@ -31,7 +31,7 @@ namespace Tahalut.YourCV.API.Controllers
 
         [HttpGet]
         [Route("GetAllLanguage")]
-        [ProducesResponseType(typeof(List<Education>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<Language>), StatusCodes.Status200OK)]
         public List<Language> GetAllLanguage()
         {
             return languageService.GetALLLanguage();
@@ -39,7 +39,7 @@ namespace Tahalut.YourCV.API.Controllers
 
         [HttpGet]
         [Route("GetAllLanguageById/{id}")]
-        [ProducesResponseType(typeof(Education), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Language), StatusCodes.Status200OK)]
         public Language GetAllLanguageById(int id)
         {
             return languageService.GetLanguageById(id);
@@ -47,7 +47,7 @@ namespace Tahalut.YourCV.API.Controllers
 
         [HttpDelete]
         [Route("DeleteLanguage/{id}")]
-        [ProducesResponseType(typeof(Education), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Language), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public bool DeleteLanguage(int id)
         {
@@ -56,7 +56,7 @@ namespace Tahalut.YourCV.API.Controllers
 
         [HttpPut]
         [Route("UpdateLanguage")]
-        [ProducesResponseType(typeof(Education), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Language), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public bool UpdateLanguage([FromBody] Language language)
         {
