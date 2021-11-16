@@ -37,5 +37,9 @@ namespace Tahalut.YourCV.Infra.Service
         {
             return resumeRepository.UpdateResume(resume);
         }
+        public Resume GetResumeByUserId(int UserId)
+        {
+            return resumeRepository.GetResumeByUserId(UserId);
+        }
     }
 }
