@@ -43,8 +43,15 @@ namespace Tahaluf.YourCV.API
             services.AddScoped<ITemplateDocumentRepository, TemplateDocumentRepository>();
             services.AddScoped<ITestimonialRepository, TestimonialRepository>();
             services.AddScoped<IWebsiteInfoRepository, WebsiteInfoRepository>();
+            services.AddScoped<IRoleRepository, RoleRepository>();
+            services.AddScoped<IPermissionRoleRepository, PermissionRoleRepository>();
+
+
 
             services.AddScoped<IEducationService, EducationService>();
+            services.AddScoped<IPermissionRoleService, PermissionRoleService>();
+
+            services.AddScoped<IRoleService, RoleService>();
             services.AddScoped<ITemplateDocumentService, TemplateDocumentService>();
             services.AddScoped<ITestimonialService, TestimonialService>();
             services.AddScoped<IWebsiteInfoService, WebsiteInfoService>();

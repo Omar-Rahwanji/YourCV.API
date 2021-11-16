@@ -20,6 +20,7 @@ namespace Tahaluf.YourCV.API.Controllers
             PermessionService = _PermessionService;
         }
         [HttpPost]
+        [Route("CreatePermession")]
         [ProducesResponseType(typeof(Permession), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public bool CreatePermession([FromBody] Permession Permession)
@@ -27,6 +28,7 @@ namespace Tahaluf.YourCV.API.Controllers
             return PermessionService.CreatePermession(Permession);
         }
         [HttpPut]
+        [Route("UpdatePermission")]
         [ProducesResponseType(typeof(Permession), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public bool UpdatePermession([FromBody] Permession Permession)
@@ -48,14 +50,14 @@ namespace Tahaluf.YourCV.API.Controllers
         {
             return PermessionService.GetPermessionByName(Permession);
         }
-        [HttpPost]
-        [Route("GetPermessionById")]
+        [HttpGet]
+        [Route("GetPermessionById/{id}")]
         [ProducesResponseType(typeof(List<Permession>), StatusCodes.Status200OK)]
-        public List<Permession> GetPermessionById(Permession Permession)
+        public List<Permession> GetPermessionById(int id)
         {
-            return PermessionService.GetPermessionById(Permession);
+            return PermessionService.GetPermessionById(id);
         }
-        [HttpPost]
+        [HttpGet]
         [Route("GetAllPermession")]
         [ProducesResponseType(typeof(List<Permession>), StatusCodes.Status200OK)]
         public List<Permession> GetAllPermession()
