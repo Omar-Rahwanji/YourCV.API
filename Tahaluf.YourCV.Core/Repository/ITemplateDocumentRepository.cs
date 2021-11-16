@@ -8,7 +8,7 @@ namespace Tahaluf.YourCV.Core.Repository
     public interface ITemplateDocumentRepository
     {
         bool CreateTemplateDocument(TemplateDocument templateDocument);
-        TemplateDocument GetTemplateDocumentById(int id);
+        List<TemplateDocument> GetTemplateDocumentById(int id);
         TemplateDocument GetTemplateDocumentByName(string name);
         IEnumerable<TemplateDocument> GetAllTemplateDocument();
         bool UpdateTemplateDocument(TemplateDocument templateDocument);

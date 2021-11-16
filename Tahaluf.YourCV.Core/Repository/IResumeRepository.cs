@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Tahaluf.YourCV.Core.Data;
+using Tahaluf.YourCV.Core.ViewModel;
 
 namespace Tahaluf.YourCV.Core.Repository
 {
@@ -12,5 +13,6 @@ namespace Tahaluf.YourCV.Core.Repository
         public Resume GetResumeById(int id);
         public bool DeleteResume(int id);
         public bool UpdateResume(Resume resume);
+        public List<Resume> GetResumeByUserId(int userId);
     }
 }

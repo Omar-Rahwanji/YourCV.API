@@ -44,11 +44,11 @@ namespace Tahaluf.YourCV.Infra.Repository
             return _dbContext.Connection.Query<WebsiteInfo>("GetAllWebsiteInfo", commandType: CommandType.StoredProcedure);
         }
 
-        public WebsiteInfo GetWebsiteInfo(int id)
+        public List<WebsiteInfo> GetWebsiteInfo(int id)
         {
             var p = new DynamicParameters();
             p.Add("@Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            return _dbContext.Connection.Query<WebsiteInfo>("GetWebsiteInfo", p, commandType: CommandType.StoredProcedure).SingleOrDefault();
+            return _dbContext.Connection.Query<WebsiteInfo>("GetWebsiteInfo", p, commandType: CommandType.StoredProcedure).ToList();
         }
 
         public WebsiteInfo GetWebsiteInfoByRoleId(int roleId)

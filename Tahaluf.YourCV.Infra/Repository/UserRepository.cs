@@ -27,7 +27,7 @@ namespace Tahaluf.YourCV.Infra.Repository
             p.Add("@Email", user.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@UserName", user.UserName, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@Password", user.Password, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("@PersonalPhoto", user.PersonalPhoto, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@PhoneNumber", user.PhoneNumber, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@Country", user.Country, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@City", user.City, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@PersonalPhoto", user.PersonalPhoto, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -51,13 +51,13 @@ namespace Tahaluf.YourCV.Infra.Repository
             p.Add("@Email", user.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@UserName", user.UserName, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@Password", user.Password, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("@PersonalPhoto", user.PersonalPhoto, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@PhoneNumber", user.PhoneNumber, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@Country", user.Country, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@City", user.City, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@PersonalPhoto", user.PersonalPhoto, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@RoleId", user.RoleId, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
-            return dbContext.Connection.ExecuteAsync("UpdateUser", p, commandType: CommandType.StoredProcedure).Result>0;
+            return dbContext.Connection.ExecuteAsync("UpdateUser", p, commandType: CommandType.StoredProcedure).Result > 0;
         }
 
         public bool DeleteUser(int id)
@@ -67,11 +67,11 @@ namespace Tahaluf.YourCV.Infra.Repository
             return dbContext.Connection.ExecuteAsync("DeleteUser", p, commandType: CommandType.StoredProcedure).Result>0;
         }
 
-        public List<User> GetUserById(User user)
+        public List<User> GetUserById(int id)
         {
             var p = new DynamicParameters();
-            p.Add("@Id", user.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<User> result = dbContext.Connection.Query<User>("GetUserById", CommandType.StoredProcedure);
+            p.Add("@Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<User> result = dbContext.Connection.Query<User>("GetUserById", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
 
         }

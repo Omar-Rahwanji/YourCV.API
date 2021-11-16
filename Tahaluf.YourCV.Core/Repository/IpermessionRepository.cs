@@ -11,7 +11,7 @@ namespace Tahaluf.YourCV.Core.Repository
         bool UpdatePermession(Permession Permession);
         bool DeletePermession(int id);
         List<Permession> GetPermessionByName(Permession Permession);
-        List<Permession> GetPermessionById(Permession Permession);
+        List<Permession> GetPermessionById(int id);
         List<Permession> GetAllPermession();
     }
 }
