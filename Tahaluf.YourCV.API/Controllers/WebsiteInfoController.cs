@@ -48,8 +48,8 @@ namespace Tahaluf.YourCV.API.Controllers
 
         [HttpGet]
         [Route("GetWebsiteInfo/{id}")]
-        [ProducesResponseType(typeof(WebsiteInfo), StatusCodes.Status200OK)]
-        public WebsiteInfo GetWebsiteInfo(int id)
+        [ProducesResponseType(typeof(List<WebsiteInfo>), StatusCodes.Status200OK)]
+        public List<WebsiteInfo> GetWebsiteInfo(int id)
         {
             return _websiteInfoService.GetWebsiteInfo(id);
         }

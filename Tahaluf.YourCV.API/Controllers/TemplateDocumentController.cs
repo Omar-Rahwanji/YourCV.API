@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Tahaluf.YourCV.Core.Data;
@@ -48,8 +49,8 @@ namespace Tahaluf.YourCV.API.Controllers
 
         [HttpGet]
         [Route("GetTemplateDocumentById/{id}")]
-        [ProducesResponseType(typeof(TemplateDocument), StatusCodes.Status200OK)]
-        public TemplateDocument GetTemplateDocumentById(int id)
+        [ProducesResponseType(typeof(List<TemplateDocument>), StatusCodes.Status200OK)]
+        public List<TemplateDocument> GetTemplateDocumentById(int id)
         {
             return _templateDocumentService.GetTemplateDocumentById(id);
         }
@@ -69,6 +70,47 @@ namespace Tahaluf.YourCV.API.Controllers
         public bool UpdateTemplateDocument([FromBody] TemplateDocument templateDocument)
         {
             return _templateDocumentService.UpdateTemplateDocument(templateDocument);
+        }
+
+        [HttpPost]
+        [Route("upload")]
+        public TemplateDocument Upload()
+        {
+            try
+            {
+                var file = Request.Form.Files[0];
+                byte[] fileContent;
+                using (var ms = new MemoryStream())
+                {
+                    file.CopyTo(ms);
+                    fileContent = ms.ToArray();
+                }
+                var fileName = Path.GetFileNameWithoutExtension(file.FileName);
+
+
+
+
+                string attachmentFileName = $"{Guid.NewGuid().ToString("N")}_{fileName}.{Path.GetExtension(file.FileName).Replace(".", "")}";
+                var fullPath = Path.Combine("C:\\Users\\DELL\\Desktop\\YourCv\\Tahaluf.YourCV.API\\Properties\\assets\\" + "images\\templates\\", attachmentFileName);
+                //var fullPath2 = Path.Combine ("C: \\Users\\DELL\\Documents\\YourCV\\src\\assets\\" + "templates\\", attachmentFileName);
+                using (var stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+
+               
+
+                return new TemplateDocument { CoverImage = attachmentFileName };
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+
+
+
+
+
         }
 
     }

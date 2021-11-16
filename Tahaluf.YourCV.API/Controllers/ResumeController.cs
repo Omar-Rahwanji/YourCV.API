@@ -43,6 +43,15 @@ namespace Tahalut.YourCV.API.Controllers
         {
             return resumeService.GetResumeById(id);
         }
+        [HttpGet]
+        [Route("GetResumeByUserId/{userId}")]
+        [ProducesResponseType(typeof(List<Resume>), StatusCodes.Status200OK)]
+
+        public List<Resume> GetResumeByUserId(int userId)
+        {
+            return resumeService.GetResumeByUserId(userId);
+        }
+
 
         [HttpDelete]
         [Route("DeleteResume/{id}")]
