@@ -58,11 +58,11 @@ namespace Tahaluf.YourCV.Infra.Repository
             return _dbContext.Connection.Query<Education>("GetEducation", p, commandType: CommandType.StoredProcedure).SingleOrDefault();
         }
 
-        public Education GetEducationByResumeId(int resumeId)
+        public IEnumerable<Education> GetEducationByResumeId(int resumeId)
         {
             var p = new DynamicParameters();
             p.Add("@ResumeId", resumeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            return _dbContext.Connection.Query<Education>("GetEducationByResumeId", p, commandType: CommandType.StoredProcedure).SingleOrDefault();
+            return _dbContext.Connection.Query<Education>("GetEducationByResumeId", p, commandType: CommandType.StoredProcedure);
         }
 
         public bool UpdateEducation(Education education)

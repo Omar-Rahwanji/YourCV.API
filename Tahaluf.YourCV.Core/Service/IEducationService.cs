@@ -9,7 +9,7 @@ namespace Tahaluf.YourCV.Core.Service
     {
         bool CreateEducation(Education education);
         Education GetEducation(int id);
-        Education GetEducationByResumeId(int resumeId);
+        IEnumerable<Education> GetEducationByResumeId(int resumeId);
         IEnumerable<Education> GetAllEducation();
         bool UpdateEducation(Education education);
         bool DeleteEducation(int id);

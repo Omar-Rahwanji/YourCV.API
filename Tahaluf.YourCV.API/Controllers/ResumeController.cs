@@ -12,6 +12,7 @@ namespace Tahalut.YourCV.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class ResumeController : Controller
+
     {
         private readonly IResumeService resumeService;
         public ResumeController(IResumeService resumeService)
@@ -59,6 +60,15 @@ namespace Tahalut.YourCV.API.Controllers
         public bool UpdateResume([FromBody] Resume resume)
         {
             return resumeService.UpdateResume(resume);
+        }
+
+
+        [HttpGet]
+        [Route("GetResumeByUserId/{userId}")]
+        [ProducesResponseType(typeof(WebsiteInfo), StatusCodes.Status200OK)]
+        public List <Resume> GetResumeByUserId(int UserId)
+       {
+            return resumeService.GetResumeByUserId(UserId);
         }
     }
 }

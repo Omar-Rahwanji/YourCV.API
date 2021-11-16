@@ -55,7 +55,7 @@ namespace Tahaluf.YourCV.API.Controllers
         {
             return PermessionService.GetPermessionById(Permession);
         }
-        [HttpPost]
+        [HttpGet]
         [Route("GetAllPermession")]
         [ProducesResponseType(typeof(List<Permession>), StatusCodes.Status200OK)]
         public List<Permession> GetAllPermession()

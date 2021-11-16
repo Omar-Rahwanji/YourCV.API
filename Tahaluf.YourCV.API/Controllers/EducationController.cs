@@ -66,7 +66,7 @@ namespace Tahaluf.YourCV.API.Controllers
         [HttpGet]
         [Route("GetEducationByResumeId/{resumeId}")]
         [ProducesResponseType(typeof(Education), StatusCodes.Status200OK)]
-        public Education GetEducationByResumeId(int resumeId)
+        public IEnumerable<Education> GetEducationByResumeId(int resumeId)
         {
             return _educationService.GetEducationByResumeId(resumeId);
         }
