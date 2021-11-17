@@ -49,8 +49,8 @@ namespace Tahaluf.YourCV.API.Controllers
 
         [HttpGet]
         [Route("GetTemplateDocumentById/{id}")]
-        [ProducesResponseType(typeof(List<TemplateDocument>), StatusCodes.Status200OK)]
-        public List<TemplateDocument> GetTemplateDocumentById(int id)
+        [ProducesResponseType(typeof(TemplateDocument), StatusCodes.Status200OK)]
+        public TemplateDocument GetTemplateDocumentById(int id)
         {
             return _templateDocumentService.GetTemplateDocumentById(id);
         }
