@@ -75,16 +75,6 @@ namespace Tahalut.YourCV.Infra.Repository
 
             return true;
         }
-
-        public Resume GetResumeByUserId(int UserId)
-        {
-            var p = new DynamicParameters();
-            p.Add("@UserId", UserId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            var result = IDbContext.Connection.Query<Resume>("GetResumeByUserId", p, commandType: CommandType.StoredProcedure);
-            return result.SingleOrDefault();
-
-
-        }
     }
 } 
 

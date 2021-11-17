@@ -41,14 +41,13 @@ namespace Tahaluf.YourCV.Infra.Repository
             return _dbContext.Connection.Query<TemplateDocument>("GetAllTemplateDocument", commandType: CommandType.StoredProcedure);
         }
 
-        public List<TemplateDocument> GetTemplateDocumentById(int id)
+        public TemplateDocument GetTemplateDocumentById(int id)
         {
         
 
             var p = new DynamicParameters();
             p.Add("@Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<TemplateDocument> result = _dbContext.Connection.Query<TemplateDocument>("GetTemplateDocumentById", p, commandType: CommandType.StoredProcedure);
-            return result.ToList();
+            return _dbContext.Connection.Query<TemplateDocument>("GetTemplateDocumentById", p, commandType: CommandType.StoredProcedure).SingleOrDefault();
         }
 
         public TemplateDocument GetTemplateDocumentByName(string name)

@@ -31,7 +31,7 @@ namespace Tahaluf.YourCV.Infra.Service
             return _templateDocumentService.GetAllTemplateDocument();
         }
 
-        public List<TemplateDocument> GetTemplateDocumentById(int id)
+        public TemplateDocument GetTemplateDocumentById(int id)
         {
             return _templateDocumentService.GetTemplateDocumentById(id);
         }

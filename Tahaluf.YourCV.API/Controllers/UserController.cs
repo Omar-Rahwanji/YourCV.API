@@ -32,11 +32,9 @@ namespace Tahaluf.YourCV.API.Controllers
             try
             {
                 var file = Request.Form.Files[0];
-                byte[] fileContent;
                 using (var ms = new MemoryStream())
                 {
                     file.CopyTo(ms);
-                    fileContent = ms.ToArray();
                 }
                 var fileName = Path.GetFileNameWithoutExtension(file.FileName);
 
