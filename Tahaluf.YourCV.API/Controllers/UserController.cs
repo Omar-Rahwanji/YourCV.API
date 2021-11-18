@@ -61,7 +61,7 @@ namespace Tahaluf.YourCV.API.Controllers
         }
 
         [HttpGet]
-        [Route("action")]
+        [Route("[action]")]
         [ProducesResponseType(typeof(List<User>), StatusCodes.Status200OK)]
         public List<User> GetAllUser()
         {
