@@ -25,8 +25,8 @@ namespace Tahalut.YourCV.Infra.Repository
             var parameters = new DynamicParameters();
             parameters.Add("@PersonName", resume.PersonName, dbType: DbType.String, direction: ParameterDirection.Input);
             parameters.Add("@PersonSummary", resume.PersonSummary, dbType: DbType.String, direction: ParameterDirection.Input);
-            parameters.Add("@UserId", resume.UserId, dbType: DbType.String, direction: ParameterDirection.Input);
-            parameters.Add("@TemplateDocumentId", resume.TemplateDocumentId, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@UserId", resume.UserId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameters.Add("@TemplateDocumentId", resume.TemplateDocumentId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IDbContext.Connection.ExecuteAsync("CreateResume", parameters, commandType: CommandType.StoredProcedure);
 
             return true;

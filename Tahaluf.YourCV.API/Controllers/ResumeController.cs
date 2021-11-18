@@ -19,9 +19,9 @@ namespace Tahalut.YourCV.API.Controllers
         {
             this.resumeService = resumeService;
         }
+
         [HttpPost]
         [Route("CreateResume")]
-        [ProducesResponseType(typeof(Resume), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public bool CreateResume([FromBody] Resume resume)
         {

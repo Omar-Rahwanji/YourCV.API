@@ -15,6 +15,8 @@ namespace Tahaluf.YourCV.Core.Data
         public string HeadLine { get; set; }
         public string Logo { get; set; }
         public string Background { get; set; }
+        public string Conclusion { get; set; }
+
         public int RoleId { get; set; }
         [ForeignKey("RoleId")]
         public virtual WebsiteInfo Role { get; set; }
