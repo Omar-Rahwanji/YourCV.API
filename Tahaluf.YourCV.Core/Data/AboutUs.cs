@@ -13,6 +13,8 @@ namespace Tahaluf.YourCV.Core.Data
         [ForeignKey("WebsiteInfoId")]
         public int WebsiteInfoId { get; set; }
         public String Information { get; set; }
+        public String CenterImage { get; set; }
+        public String SideImage { get; set; }
         public virtual WebsiteInfo websiteInfo { get; set; }
     }
 }

@@ -22,24 +22,21 @@ namespace Tahaluf.YourCV.Infra.Repository
 
             var p = new DynamicParameters();
             p.Add("@Name", Permession.Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("@RoleId", Permession.RoleId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
-            return DbContext.Connection.ExecuteAsync("CreatePermession", p, commandType: CommandType.StoredProcedure).Result>0;
+            return DbContext.Connection.ExecuteAsync("Createpermission", p, commandType: CommandType.StoredProcedure).Result>0;
         }
         public bool UpdatePermession(Permession Permession)
         {
 
             var p = new DynamicParameters();
+            p.Add("@Id", Permession.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("@Name", Permession.Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("@RoleId", Permession.RoleId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
-            return DbContext.Connection.ExecuteAsync("UpdatePermession", p, commandType: CommandType.StoredProcedure).Result>0;
+            return DbContext.Connection.ExecuteAsync("Updatepermission", p, commandType: CommandType.StoredProcedure).Result>0;
         }
         public bool DeletePermession(int id)
         {
             var p = new DynamicParameters();
             p.Add("@Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            return DbContext.Connection.ExecuteAsync(" DeletePermession", p, commandType: CommandType.StoredProcedure).Result>0;
+            return DbContext.Connection.ExecuteAsync("Deletepermession", p, commandType: CommandType.StoredProcedure).Result>0;
         }
         public List<Permession> GetPermessionByName(Permession Permession)
         {
@@ -49,10 +46,10 @@ namespace Tahaluf.YourCV.Infra.Repository
             return result.ToList();
 
         }
-        public List<Permession> GetPermessionById(Permession Permession)
+        public List<Permession> GetPermessionById(int id)
         {
             var p = new DynamicParameters();
-            p.Add("@Id", Permession.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("@Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<Permession> result = DbContext.Connection.Query<Permession>("GetPermessionById", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
 

@@ -36,9 +36,9 @@ namespace Tahaluf.YourCV.Infra.Service
             return userRepository.DeleteUser(id);
         }
 
-        public List<User> GetUserById(User user)
+        public List<User> GetUserById(int id)
         {
-            return userRepository.GetUserById(user);
+            return userRepository.GetUserById(id);
         }
     }
 }

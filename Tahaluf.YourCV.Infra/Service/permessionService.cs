@@ -32,9 +32,9 @@ namespace Tahaluf.YourCV.Infra.Service
         {
             return PermessionRepository.GetPermessionByName(Permession);
         }
-        public List<Permession> GetPermessionById(Permession Permession)
+        public List<Permession> GetPermessionById(int id)
         {
-            return PermessionRepository.GetPermessionById(Permession);
+            return PermessionRepository.GetPermessionById(id);
         }
         public List<Permession> GetAllPermession()
         {

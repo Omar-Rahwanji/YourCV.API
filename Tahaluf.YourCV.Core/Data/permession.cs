@@ -12,6 +12,6 @@ namespace Tahaluf.YourCV.Core.Data
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        public int RoleId { get; set; }
+        
     }
 }

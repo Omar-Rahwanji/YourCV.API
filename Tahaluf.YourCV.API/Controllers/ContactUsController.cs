@@ -21,7 +21,7 @@ namespace Tahaluf.YourCV.API.Controllers
         }
 
         [HttpPost]
-        [Route("[action]")]
+        [Route("CreateContactUs")]
         [ProducesResponseType(typeof(ContactUs), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public bool CreateContactUs([FromBody] ContactUs contactUs)
@@ -57,8 +57,9 @@ namespace Tahaluf.YourCV.API.Controllers
 
 
         [HttpPost]
-        [Route("[action]")]
-        [ProducesResponseType(typeof(List<ContactUs>), StatusCodes.Status200OK)]
+        [Route("GetContactUsById")]
+        [ProducesResponseType(typeof(ContactUs), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
 
         public List<ContactUs> GetContactUsById(ContactUs contactUs)
         {

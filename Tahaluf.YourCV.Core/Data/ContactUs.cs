@@ -13,8 +13,9 @@ namespace Tahaluf.YourCV.Core.Data
         public string Name { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
+        public string Subject { get; set; }
         public string Message { get; set; }
-        public int WebsiteInfoId { get; set; }
+        public int WebsiteInfoId { get; set; } = 1;
 
         [ForeignKey("WebsiteInfoId")]
         public virtual WebsiteInfo WebsiteInfo { get; set; }

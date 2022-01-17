@@ -43,10 +43,11 @@ namespace Tahaluf.YourCV.Infra.Repository
 
         public TemplateDocument GetTemplateDocumentById(int id)
         {
+        
+
             var p = new DynamicParameters();
             p.Add("@Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             return _dbContext.Connection.Query<TemplateDocument>("GetTemplateDocumentById", p, commandType: CommandType.StoredProcedure).SingleOrDefault();
-
         }
 
         public TemplateDocument GetTemplateDocumentByName(string name)

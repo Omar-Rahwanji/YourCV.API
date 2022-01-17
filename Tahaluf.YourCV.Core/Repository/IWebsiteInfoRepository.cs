@@ -8,7 +8,7 @@ namespace Tahaluf.YourCV.Core.Repository
     public interface IWebsiteInfoRepository
     {
         bool CreateWebsiteInfo(WebsiteInfo websiteInfo);
-        WebsiteInfo GetWebsiteInfo(int id);
+        List<WebsiteInfo> GetWebsiteInfo(int id);
         IEnumerable<WebsiteInfo> GetAllWebsiteInfo();
         WebsiteInfo GetWebsiteInfoByRoleId(int roleId);
         bool UpdateWebsiteInfo(WebsiteInfo websiteInfo);

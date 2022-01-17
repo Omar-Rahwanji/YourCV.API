@@ -12,15 +12,16 @@ namespace Tahalut.YourCV.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class ResumeController : Controller
+
     {
         private readonly IResumeService resumeService;
         public ResumeController(IResumeService resumeService)
         {
             this.resumeService = resumeService;
         }
+
         [HttpPost]
         [Route("CreateResume")]
-        [ProducesResponseType(typeof(Education), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public bool CreateResume([FromBody] Resume resume)
         {
@@ -29,7 +30,7 @@ namespace Tahalut.YourCV.API.Controllers
 
         [HttpGet]
         [Route("GetAllResume")]
-        [ProducesResponseType(typeof(List<Education>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<Resume>), StatusCodes.Status200OK)]
         public List<Resume> GetAllResume()
         {
             return resumeService.GetALLResume();
@@ -37,15 +38,23 @@ namespace Tahalut.YourCV.API.Controllers
 
         [HttpGet]
         [Route("GetAllResumeById/{id}")]
-        [ProducesResponseType(typeof(Education), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Resume), StatusCodes.Status200OK)]
         public Resume GetAllResumeById(int id)
         {
             return resumeService.GetResumeById(id);
         }
+        [HttpGet]
+        [Route("GetResumeByUserId/{userId}")]
+        [ProducesResponseType(typeof(List<Resume>), StatusCodes.Status200OK)]
+        public List<Resume> GetResumeByUserId(int userId)
+        {
+            return resumeService.GetResumeByUserId(userId);
+        }
+
 
         [HttpDelete]
         [Route("DeleteResume/{id}")]
-        [ProducesResponseType(typeof(Education), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Resume), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public bool DeleteResume(int id)
         {
@@ -54,7 +63,7 @@ namespace Tahalut.YourCV.API.Controllers
 
         [HttpPut]
         [Route("UpdateResume")]
-        [ProducesResponseType(typeof(Education), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Resume), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public bool UpdateResume([FromBody] Resume resume)
         {

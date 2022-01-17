@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace Tahalut.YourCV.API.Controllers
 
         [HttpPost]
         [Route("CreateAboutUs")]
-        [ProducesResponseType(typeof(Education), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(AboutUs), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public bool CreateAboutUs([FromBody] AboutUs aboutUs)
         {
@@ -30,7 +31,7 @@ namespace Tahalut.YourCV.API.Controllers
 
         [HttpGet]
         [Route("GetAllAboutUs")]
-        [ProducesResponseType(typeof(List<Education>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<AboutUs>), StatusCodes.Status200OK)]
         public List<AboutUs> GetAllAboutUs()
         {
             return aboutUsService.GetALLAboutUs();
@@ -38,7 +39,7 @@ namespace Tahalut.YourCV.API.Controllers
 
         [HttpGet]
         [Route("GetAllAboutUsById/{id}")]
-        [ProducesResponseType(typeof(Education), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(AboutUs), StatusCodes.Status200OK)]
         public AboutUs GetAllAboutUsById(int id)
         {
             return aboutUsService.GetAboutUsById(id);
@@ -46,7 +47,7 @@ namespace Tahalut.YourCV.API.Controllers
 
         [HttpDelete]
         [Route("DeleteAboutUs/{id}")]
-        [ProducesResponseType(typeof(Education), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(AboutUs), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public bool DeleteAboutUs(int id)
         {
@@ -55,7 +56,7 @@ namespace Tahalut.YourCV.API.Controllers
 
         [HttpPut]
         [Route("UpdateAboutUs")]
-        [ProducesResponseType(typeof(Education), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(AboutUs), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public bool UpdateAboutUs([FromBody] AboutUs aboutUs)
         {
